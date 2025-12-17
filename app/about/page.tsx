@@ -1,8 +1,11 @@
+import styles from "./page.module.css"
+
 export default function AboutPage() {
 
     return (
 
-    <main className="flex flex-col items-center justify-center min-h-screen p-8 bg-white dark:bg-black gap-6">
+    <main className={`flex flex-col items-center justify-center min-h-screen p-8 bg-white dark:bg-black gap-6 ${styles.rojo}`}>
+      Lorem, ipsum.
       <p className="max-w-2xl text-lg text-zinc-700 dark:text-zinc-300">
         Esta página tiene como objetivo proporcionar información relevante y actualizada sobre el proyecto desarrollado.
       </p>
