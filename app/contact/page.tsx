@@ -1,6 +1,5 @@
 export default function ContactPage(){
 
-
     return(
 
     <main className="flex flex-col items-center justify-center min-h-screen p-8 bg-white dark:bg-black">
