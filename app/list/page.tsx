@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import PokemonCard from "@/components/PokemonCard";
 import Pokemon from "@/types/Pokemon";
+import PokemonForm from "@/components/PokemonForm";
 
 export default function PokemonListPage() {
   // useState es un hook de React que nos permite añadir y manejar un estado local dentro de un componente funcional.
@@ -13,6 +14,10 @@ export default function PokemonListPage() {
   const [selectedPokemon, setSelectedPokemon] = useState<number | null>(null);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  
+  // `showForm` es un estado booleano que indica si el formulario para añadir un nuevo Pokémon se debe mostrar en pantalla o no.
+  // Al llamarse `setShowForm`, podemos cambiar su valor entre `true` (visible) y `false` (oculto).
+  const [showForm, setShowForm] = useState<boolean>(false);
  
 
   /**
@@ -46,7 +51,39 @@ export default function PokemonListPage() {
     fetchPokemons();
   }, []);
 
+  // Ejemplo de como podemos usar un segundo useEffect para temporizadores
+  useEffect( ()=>{
+    setTimeout( () => alert("Han pasado 5 segundos!"), 5000)
+  },[])
+
+  // Función para manejar el envío del formulario de nuevo Pokémon
+  const handlePokemonSubmit = async (nuevoPokemon: {
+    id: number;
+    nombre: string;
+    image: string;
+    tipo: string[];
+    descripcion: string;
+  }) => {
+    try {
+      const res = await fetch("http://localhost:3001/pokemons", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(nuevoPokemon),
+      });
+      if (!res.ok) {
+        alert("Error al añadir el Pokémon.");
+        return;
+      }
+      alert("¡Pokémon añadido correctamente!");
+    } catch {
+      alert("Ocurrió un error al intentar añadir el Pokémon.");
+    }
+  };
+
   return (
+    <>
     <main className="flex justify-center items-center bg-white dark:bg-black rounded-lg p-8 shadow max-w-5xl w-full mx-auto">
       <div className="flex flex-row flex-wrap gap-6 justify-center">
 
@@ -58,6 +95,18 @@ export default function PokemonListPage() {
         */}
         {loading && <p>Cargando datos</p>}
 
+        
+        {/*
+          <ul>
+          {
+            pokemons.map( (pokemon,hds) => (
+              <li key={hds}>{pokemon.nombre}</li>
+            ) )
+          }
+          </ul>
+
+        */}
+        
         {
           pokemons.map( (pokemon,idx) => (
 
@@ -77,5 +126,36 @@ export default function PokemonListPage() {
 
       </div>
     </main>
+
+    <div className="flex justify-center mt-8">
+      <button
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow transition-colors"
+        onClick={() => setShowForm(!showForm) }
+      >
+        Añadir Pokémon
+      </button>
+    </div>
+
+
+    { 
+
+    showForm && 
+    
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/40">
+      <div className="relative w-full max-w-2xl mx-auto bg-white dark:bg-black rounded-lg shadow-lg p-8">
+        <button
+          className="absolute top-4 right-4 text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-2xl font-bold"
+          aria-label="Cerrar"
+          onClick={() => setShowForm(false)}
+        >
+          &times;
+        </button>
+        <PokemonForm onSubmit={handlePokemonSubmit} />
+      </div>
+    </div>
+    }
+
+
+    </>
   );
 }

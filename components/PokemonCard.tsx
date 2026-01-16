@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface PokemonCardProps {
   image: string;
@@ -26,14 +29,18 @@ interface PokemonCardProps {
  */
 
 export default function PokemonCard({ image, number, name, types, description, isSelected = false, onClick }: PokemonCardProps) {
+  // Hook de Next.js para manejar navegación programática.
+  const router = useRouter();
+
   return (
     <div 
+      // Cuando se hace clic en la tarjeta, si se pasó una función onClick como prop, se ejecutará.
       onClick={onClick}
-      className={` rounded-lg shadow-md p-4 flex flex-col items-center w-56 border cursor-pointer transition-all shadow-2xl ${
-        isSelected 
-          ? "border-blue-500 dark:border-blue-400 scale-110 bg-zinc-200" 
-          : "border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-700 bg-white dark:bg-zinc-900"
-      }`}
+      // Cuando se hace doble clic en la tarjeta, navega a la página de detalles del Pokémon usando el número en la URL.
+      onDoubleClick={() => router.push(`/pokemon/${number}`)}
+      className={` rounded-lg shadow-md p-4 flex flex-col items-center w-56 border cursor-pointer transition-all shadow-2xl 
+        ${ isSelected  ? "border-blue-500 dark:border-blue-400 scale-110 bg-zinc-200" 
+                       : "border-blue-200 dark:border-blue-900 hover:border-blue-400 dark:hover:border-blue-700 bg-white dark:bg-zinc-900"  }`}
     >      
       <h3 className="text-lg font-bold capitalize text-blue-900 dark:text-blue-100">{name}</h3>
       <span className="text-sm text-blue-500 font-semibold mb-1">#{number.toString().padStart(3, '0')}</span>
@@ -48,7 +55,7 @@ export default function PokemonCard({ image, number, name, types, description, i
         }
       </p>
 
-      <p>{ isSelected && description}</p>
+      <p>{ isSelected && description }</p>
     </div>
   );
 }

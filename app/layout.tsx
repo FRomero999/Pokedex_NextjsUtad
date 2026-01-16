@@ -18,6 +18,14 @@ export default function RootLayout({
       <body className={`antialiased font-sans`} >
         <MenuBar />
         {children}
+
+        <footer className="w-full mt-8 flex flex-col items-center text-center text-zinc-600 dark:text-zinc-300 text-sm">
+          <hr className="w-full border-zinc-200 dark:border-zinc-800 mb-4" />
+          <span>
+            Pokédex App &copy; {new Date().getFullYear()} - Hecho con <span className="text-blue-500">Next.js</span> y amor por Pokémon.
+          </span>
+        </footer>
+
       </body>
     </html>
   );

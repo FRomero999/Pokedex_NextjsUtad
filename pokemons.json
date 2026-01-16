@@ -1,144 +1,203 @@
 {
   "pokemons": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Bulbasaur",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-      "tipo": ["Planta", "Veneno"],
+      "tipo": [
+        "Planta",
+        "Veneno"
+      ],
       "descripcion": "Una rara semilla fue plantada en su espalda al nacer. La planta brota y crece con este Pokémon."
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Charmander",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-      "tipo": ["Fuego"],
+      "tipo": [
+        "Fuego"
+      ],
       "descripcion": "Prefiere las cosas calientes. Dicen que cuando llueve sale vapor de la punta de su cola."
     },
     {
-      "id": 7,
+      "id": "7",
       "nombre": "Squirtle",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-      "tipo": ["Agua"],
+      "tipo": [
+        "Agua"
+      ],
       "descripcion": "Tras su nacimiento, su espalda se hincha y endurece como una concha. Echa potente espuma por la boca."
     },
     {
-      "id": 25,
+      "id": "25",
       "nombre": "Pikachu",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-      "tipo": ["Eléctrico"],
+      "tipo": [
+        "Eléctrico"
+      ],
       "descripcion": "Cuando se enfada, descarga inmediatamente la energía almacenada en las bolsas de sus mejillas."
     },
     {
-      "id": 133,
+      "id": "133",
       "nombre": "Eevee",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
-      "tipo": ["Normal"],
+      "tipo": [
+        "Normal"
+      ],
       "descripcion": "Su código genético es irregular, por lo que puede mutar si se expone a piedras elementales."
     },
     {
-      "id": 150,
+      "id": "150",
       "nombre": "Mewtwo",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png",
-      "tipo": ["Psíquico"],
+      "tipo": [
+        "Psíquico"
+      ],
       "descripcion": "Su ADN es casi el mismo que el de Mew. Sin embargo, su tamaño y carácter son muy diferentes."
     },
     {
-      "id": 151,
+      "id": "151",
       "nombre": "Mew",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png",
-      "tipo": ["Psíquico"],
+      "tipo": [
+        "Psíquico"
+      ],
       "descripcion": "Su ADN contiene el código genético de todos los Pokémon, por lo que puede usar todo tipo de movimientos."
     },
     {
-      "id": 448,
+      "id": "448",
       "nombre": "Lucario",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png",
-      "tipo": ["Lucha", "Acero"],
+      "tipo": [
+        "Lucha",
+        "Acero"
+      ],
       "descripcion": "Puede percibir las emociones de los seres vivos a través de sus auras y entender el habla humana."
     },
     {
-      "id": 656,
+      "id": "656",
       "nombre": "Froakie",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/656.png",
-      "tipo": ["Agua"],
+      "tipo": [
+        "Agua"
+      ],
       "descripcion": "Emite burbujas de la espuma de su cuello y espalda. La textura de esta espuma reduce el daño recibido."
     },
     {
-      "id": 722,
+      "id": "722",
       "nombre": "Rowlet",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/722.png",
-      "tipo": ["Planta", "Volador"],
+      "tipo": [
+        "Planta",
+        "Volador"
+      ],
       "descripcion": "Este Pokémon empolla en los bosques. Aletea sin hacer ruido y se aproxima sigilosamente a sus enemigos."
     },
     {
-      "id": 810,
+      "id": "810",
       "nombre": "Grookey",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/810.png",
-      "tipo": ["Planta"],
+      "tipo": [
+        "Planta"
+      ],
       "descripcion": "Cuando utiliza el palo que lleva para tocar un ritmo, da fuerza a las plantas de los alrededores."
     },
     {
-      "id": 906,
+      "id": "906",
       "nombre": "Sprigatito",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/906.png",
-      "tipo": ["Planta"],
+      "tipo": [
+        "Planta"
+      ],
       "descripcion": "Se acicala con frecuencia para mantener su pelaje sedoso, que despide un aroma relajante."
     },
     {
-      "id": 143,
+      "id": "143",
       "nombre": "Snorlax",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png",
-      "tipo": ["Normal"],
+      "tipo": [
+        "Normal"
+      ],
       "descripcion": "No se satisfará hasta haber ingerido 400 kg de comida cada día. Cuando acaba de comer, se queda dormido."
     },
     {
-      "id": 129,
+      "id": "129",
       "nombre": "Magikarp",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png",
-      "tipo": ["Agua"],
+      "tipo": [
+        "Agua"
+      ],
       "descripcion": "Un Pokémon débil y patético que solo puede saltar y dar coletazos. Muy común en ríos y lagos."
     },
     {
-      "id": 130,
+      "id": "130",
       "nombre": "Gyarados",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/130.png",
-      "tipo": ["Agua", "Volador"],
+      "tipo": [
+        "Agua",
+        "Volador"
+      ],
       "descripcion": "Tiene un carácter violento y salvaje. Aparece en el mundo dejando a su paso pueblos y ciudades destruidas."
     },
     {
-      "id": 6,
+      "id": "6",
       "nombre": "Charizard",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-      "tipo": ["Fuego", "Volador"],
+      "tipo": [
+        "Fuego",
+        "Volador"
+      ],
       "descripcion": "Escupe llamas tan calientes que funden las rocas. Causa incendios forestales sin querer."
     },
     {
-      "id": 94,
+      "id": "94",
       "nombre": "Gengar",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
-      "tipo": ["Fantasma", "Veneno"],
+      "tipo": [
+        "Fantasma",
+        "Veneno"
+      ],
       "descripcion": "En las noches de luna llena, a este Pokémon le gusta imitar las sombras de la gente y burlarse de sus miedos."
     },
     {
-      "id": 149,
+      "id": "149",
       "nombre": "Dragonite",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png",
-      "tipo": ["Dragón", "Volador"],
+      "tipo": [
+        "Dragón",
+        "Volador"
+      ],
       "descripcion": "Un Pokémon marino que suele rescatar a personas náufragas llevándolas a volando hasta la costa."
     },
     {
-      "id": 282,
+      "id": "282",
       "nombre": "Gardevoir",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png",
-      "tipo": ["Psíquico", "Hada"],
+      "tipo": [
+        "Psíquico",
+        "Hada"
+      ],
       "descripcion": "Para proteger a su Entrenador, emplea todos sus poderes psíquicos para crear un pequeño agujero negro."
     },
     {
-      "id": 445,
+      "id": "445",
       "nombre": "Garchomp",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/445.png",
-      "tipo": ["Dragón", "Tierra"],
+      "tipo": [
+        "Dragón",
+        "Tierra"
+      ],
       "descripcion": "Vuela a la velocidad del sonido para pillar a su presa. Sus afiladas aletas son temibles armas."
+    },
+    {
+      "id": 0,
+      "nombre": "test",
+      "image": "https://picsum.photos/100",
+      "tipo": [
+        "test",
+        "arriba"
+      ],
+      "descripcion": "test"
     }
   ]
 }
