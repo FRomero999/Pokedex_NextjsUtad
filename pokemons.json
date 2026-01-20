@@ -190,7 +190,7 @@
       "descripcion": "Vuela a la velocidad del sonido para pillar a su presa. Sus afiladas aletas son temibles armas."
     },
     {
-      "id": 0,
+      "id": "0",
       "nombre": "test",
       "image": "https://picsum.photos/100",
       "tipo": [
@@ -198,6 +198,17 @@
         "arriba"
       ],
       "descripcion": "test"
+    },
+    {
+      "id": 56,
+      "nombre": "Sonic",
+      "image": "https://picsum.photos/100",
+      "tipo": [
+        "fuego",
+        "aire",
+        "tierra"
+      ],
+      "descripcion": "Lorem ipsum"
     }
   ]
 }
