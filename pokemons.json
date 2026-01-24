@@ -200,7 +200,7 @@
       "descripcion": "test"
     },
     {
-      "id": 56,
+      "id": "56",
       "nombre": "Sonic",
       "image": "https://picsum.photos/100",
       "tipo": [
@@ -209,6 +209,33 @@
         "tierra"
       ],
       "descripcion": "Lorem ipsum"
+    },
+    {
+      "id": 555,
+      "nombre": "555",
+      "image": "https://picsum.photos/100",
+      "tipo": [
+        "555"
+      ],
+      "descripcion": "555"
+    },
+    {
+      "id": 111,
+      "nombre": "111",
+      "image": "https://picsum.photos/100?a",
+      "tipo": [
+        "dsa"
+      ],
+      "descripcion": "dasdas"
+    },
+    {
+      "id": 222,
+      "nombre": "222",
+      "image": "https://picsum.photos/100?aa",
+      "tipo": [
+        "dsadas"
+      ],
+      "descripcion": "dasdsadsadas"
     }
   ]
 }

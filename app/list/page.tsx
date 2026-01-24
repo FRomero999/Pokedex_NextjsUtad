@@ -76,10 +76,12 @@ export default function PokemonListPage() {
         alert("Error al añadir el Pokémon.");
         return;
       }
+      setPokemons(prev => [...prev, nuevoPokemon]);
       alert("¡Pokémon añadido correctamente!");
     } catch {
       alert("Ocurrió un error al intentar añadir el Pokémon.");
     }
+    setShowForm(false);
   };
 
   return (

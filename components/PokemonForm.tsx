@@ -1,19 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-
-// Tipo de datos para el Pokémon que se envía en el formulario
-interface PokemonFormData {
-  id: number;
-  nombre: string;
-  image: string;
-  tipo: string[];
-  descripcion: string;
-}
-
-interface PokemonFormProps {
-  onSubmit?: (pokemon: PokemonFormData) => void;
-}
+import { PokemonFormData } from "@/interfaces/PokemonFormData";
+import { PokemonFormProps } from "@/interfaces/PokemonFormProps";
+import { PokemonFormState } from "@/interfaces/PokemonFormState";
 
 /**
  * PokemonForm es un formulario para crear o editar un Pokémon.
@@ -25,59 +15,83 @@ interface PokemonFormProps {
  */
 
 export default function PokemonForm({ onSubmit }: PokemonFormProps) {
-  const [id, setId] = useState<string>("");
-  const [nombre, setNombre] = useState<string>("");
-  const [image, setImage] = useState<string>("");
-  const [tipoInput, setTipoInput] = useState<string>("");
-  const [tipos, setTipos] = useState<string[]>([]);
-  const [descripcion, setDescripcion] = useState<string>("");
+  // Unificación de todos los useState en uno solo para los campos del formulario
+  const [form, setForm] = useState<PokemonFormState>({
+    id: "",
+    nombre: "",
+    image: "",
+    tipoInput: "",
+    tipo: [],
+    descripcion: "",
+  });
+
+  // Manejo genérico de los campos del formulario usando name
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   // Función para añadir un tipo a la lista
   const handleAddTipo = () => {
-    const tipoTrimmed = tipoInput.trim();
-    if (tipoTrimmed && !tipos.includes(tipoTrimmed)) {
-      setTipos([...tipos, tipoTrimmed]);
-      setTipoInput("");
+    const tipoTrimmed = form.tipoInput.trim();
+    if (tipoTrimmed && !form.tipo.includes(tipoTrimmed)) {
+      setForm((prev) => ({
+        ...prev,
+        tipo: [...prev.tipo, tipoTrimmed],
+        tipoInput: "",
+      }));
     }
   };
 
   // Función para eliminar un tipo de la lista
   const handleRemoveTipo = (tipoToRemove: string) => {
-    setTipos(tipos.filter(tipo => tipo !== tipoToRemove));
+    setForm((prev) => ({
+      ...prev,
+      tipo: prev.tipo.filter((tipo) => tipo !== tipoToRemove),
+    }));
   };
 
   // Función para manejar el envío del formulario
   const handleSubmit = (e: React.FormEvent) => {
-    // Prevenimos el comportamiento por defecto del formulario (evita recargar la página)
     e.preventDefault();
-    
-    // Validamos que todos los campos requeridos estén completos
-    if (!id || !nombre || !image || tipos.length === 0 || !descripcion) {
+
+    if (
+      !form.id ||
+      !form.nombre ||
+      !form.image ||
+      form.tipo.length === 0 ||
+      !form.descripcion
+    ) {
       alert("Por favor, completa todos los campos requeridos.");
-      return; // Si falta algún campo, detenemos el envío
+      return;
     }
 
-    // Creamos un objeto con los datos del nuevo Pokémon, asegurándonos que id sea un número
-    const pokemonData = {
-      id: parseInt(id),
-      nombre,
-      image,
-      tipo: tipos,
-      descripcion,
+    const pokemonData: PokemonFormData = {
+      id: parseInt(form.id),
+      nombre: form.nombre,
+      image: form.image,
+      tipo: form.tipo,
+      descripcion: form.descripcion,
     };
 
-    // Si se proporcionó una función onSubmit desde las props, la llamamos y le pasamos los datos del Pokémon
     if (onSubmit) {
       onSubmit(pokemonData);
     }
 
     // Limpiar el formulario después de enviar
-    setId("");
-    setNombre("");
-    setImage("");
-    setTipoInput("");
-    setTipos([]);
-    setDescripcion("");
+    setForm({
+      id: "",
+      nombre: "",
+      image: "",
+      tipoInput: "",
+      tipo: [],
+      descripcion: "",
+    });
   };
 
   return (
@@ -85,7 +99,7 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
       <h2 className="text-3xl font-bold mb-6 text-blue-900 dark:text-blue-100">
         Añadir Nuevo Pokémon
       </h2>
-      
+
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Campo ID */}
         <div>
@@ -95,8 +109,9 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
           <input
             type="number"
             id="id"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
+            name="id"
+            value={form.id}
+            onChange={handleChange}
             className="w-full px-4 py-2 border border-blue-200 dark:border-blue-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
             required
           />
@@ -110,8 +125,9 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
           <input
             type="text"
             id="nombre"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            name="nombre"
+            value={form.nombre}
+            onChange={handleChange}
             className="w-full px-4 py-2 border border-blue-200 dark:border-blue-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
             required
           />
@@ -125,8 +141,9 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
           <input
             type="url"
             id="image"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            name="image"
+            value={form.image}
+            onChange={handleChange}
             className="w-full px-4 py-2 border border-blue-200 dark:border-blue-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
             placeholder="https://ejemplo.com/imagen.png"
             required
@@ -135,15 +152,16 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
 
         {/* Campo Tipos */}
         <div>
-          <label htmlFor="tipo" className="block text-sm font-medium mb-2 text-zinc-800 dark:text-zinc-200">
+          <label htmlFor="tipoInput" className="block text-sm font-medium mb-2 text-zinc-800 dark:text-zinc-200">
             Tipos *
           </label>
           <div className="flex gap-2 mb-2">
             <input
               type="text"
-              id="tipo"
-              value={tipoInput}
-              onChange={(e) => setTipoInput(e.target.value)}
+              id="tipoInput"
+              name="tipoInput"
+              value={form.tipoInput}
+              onChange={handleChange}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
@@ -161,11 +179,11 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
               Añadir
             </button>
           </div>
-          
+
           {/* Lista de tipos añadidos */}
-          {tipos.length > 0 && (
+          {form.tipo.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              {tipos.map((tipo, idx) => (
+              {form.tipo.map((tipo, idx) => (
                 <span
                   key={idx}
                   className="inline-flex items-center gap-1 bg-blue-100 dark:bg-blue-800 text-blue-800 dark:text-blue-100 rounded px-3 py-1 text-sm font-medium"
@@ -191,8 +209,9 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
           </label>
           <textarea
             id="descripcion"
-            value={descripcion}
-            onChange={(e) => setDescripcion(e.target.value)}
+            name="descripcion"
+            value={form.descripcion}
+            onChange={handleChange}
             rows={4}
             className="w-full px-4 py-2 border border-blue-200 dark:border-blue-900 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 resize-y"
             required

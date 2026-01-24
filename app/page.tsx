@@ -1,8 +1,13 @@
+"use client"
+
 import WelcomeCard from "@/components/WelcomeCard";
 import InfoCard from "@/components/InfoCard";
 
 export default function Home() {
+
+
   return (
+    <>
     <main className="flex flex-col items-center justify-center bg-white dark:bg-black rounded-lg p-8 shadow max-w-5xl w-full mx-auto">
       <WelcomeCard />
 
@@ -21,5 +26,6 @@ export default function Home() {
         />
       </div>
     </main>
+    </>
   );
 }

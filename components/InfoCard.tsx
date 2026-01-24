@@ -1,7 +1,4 @@
-interface InfoCardProps {
-  title: string;
-  description: string;
-}
+import { InfoCardProps } from "@/interfaces/InfoCardProps";
 
 export default function InfoCard({ title, description }: InfoCardProps) {
   return (
