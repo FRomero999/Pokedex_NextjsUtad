@@ -26,9 +26,7 @@ export default function PokemonForm({ onSubmit }: PokemonFormProps) {
   });
 
   // Manejo genérico de los campos del formulario usando name
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm((prev) => ({
       ...prev,

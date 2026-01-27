@@ -211,7 +211,7 @@
       "descripcion": "Lorem ipsum"
     },
     {
-      "id": 555,
+      "id": "555",
       "nombre": "555",
       "image": "https://picsum.photos/100",
       "tipo": [
@@ -220,7 +220,7 @@
       "descripcion": "555"
     },
     {
-      "id": 111,
+      "id": "111",
       "nombre": "111",
       "image": "https://picsum.photos/100?a",
       "tipo": [
@@ -229,13 +229,22 @@
       "descripcion": "dasdas"
     },
     {
-      "id": 222,
+      "id": "222",
       "nombre": "222",
       "image": "https://picsum.photos/100?aa",
       "tipo": [
         "dsadas"
       ],
       "descripcion": "dasdsadsadas"
+    },
+    {
+      "id": 4,
+      "nombre": "nuevopokemon",
+      "image": "https://picsum.photos/100?dsa",
+      "tipo": [
+        "utad"
+      ],
+      "descripcion": "descripcion larga del pokemon"
     }
   ]
 }

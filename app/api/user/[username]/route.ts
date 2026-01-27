@@ -24,10 +24,11 @@ export async function GET(
     // Por ahora, retornamos un ejemplo
     const usuario: Usuario = {
       username: username,
-      password: "", // En una implementación real, no deberías retornar la contraseña
+      password: "vacio", // En una implementación real, no deberías retornar la contraseña
     };
 
     return NextResponse.json(usuario, { status: 200 });
+
   } catch (error) {
     return NextResponse.json(
       { error: "Error al obtener el usuario" },
