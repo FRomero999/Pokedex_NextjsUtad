@@ -22,9 +22,6 @@ export default function DarkMode() {
     } else {
       htmlElement.classList.remove("dark");
     }
-    
-    // Debug: verificar que la clase se está aplicando
-    console.log("Dark mode:", isDarkMode, "HTML classList:", htmlElement.classList.toString());
   }, [context?.isDarkMode, context]);
 
   return null; // Este componente no renderiza nada

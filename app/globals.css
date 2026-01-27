@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Hace que las clases dark: de Tailwind dependan de la clase .dark en un ancestro (p. ej. <html>) */
+@variant dark (.dark &);
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
